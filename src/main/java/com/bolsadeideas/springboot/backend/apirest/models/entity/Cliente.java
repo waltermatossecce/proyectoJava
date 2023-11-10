@@ -42,6 +42,7 @@ public class Cliente implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@Column(name = "createat")
 	private Date createAt;
+	private String foto;
 	
 	
 //	@PrePersist

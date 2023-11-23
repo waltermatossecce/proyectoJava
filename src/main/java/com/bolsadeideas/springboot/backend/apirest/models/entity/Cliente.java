@@ -3,15 +3,8 @@ package com.bolsadeideas.springboot.backend.apirest.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -30,7 +23,7 @@ public class Cliente implements Serializable{
 	private Long id;
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 4,max = 12 ,message = "el tamaño tiene que estar entre 4 y 12")
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String nombre;
 	@NotEmpty(message = "no puede estar vacio")
 	private String apellido;
@@ -43,13 +36,7 @@ public class Cliente implements Serializable{
 	@Column(name = "createat")
 	private Date createAt;
 	private String foto;
-	
-	
-//	@PrePersist
-//	public void prePersist() {
-//		this.createAt=new Date();
-//	}
-//	
-	private static final long serialVersionUID = 1L;
+
+
 	
 }
